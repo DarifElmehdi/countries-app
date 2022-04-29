@@ -30,23 +30,23 @@ function Country(props) {
 
     useEffect(() => {
         id && getCountrie(id);
-    }, []);
+    }, [id]);
 
     useEffect(() => {
         countrie?.borders && getBorderCountries();
     }, [countrie]);
 
     return (
-        <div className="pt-24 px-2 md:px-10 lg:px-40 w-full bg-darkwhite min-h-screen">
+        <div className="pt-24 px-2 md:px-10 lg:px-40  w-full bg-gray-100 dark:bg-slate-800 text-slate-800 dark:text-gray-100  min-h-screen">
             <div className="lg:col-span-2 mb-20">
                 <Link to={"/"}>
                     <BackButton />
                 </Link>
             </div>
             {countrie && (
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 m-auto">
                     <img
-                        className="h-80 aspect-auto bg-black my-auto"
+                        className="w-4/6 aspect-auto bg-black my-auto m-auto"
                         src={countrie.flags.png}
                         alt={countrie.name.common}
                     />
