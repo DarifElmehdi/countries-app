@@ -46,7 +46,7 @@ function Country(props) {
             {countrie && (
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 m-auto">
                     <img
-                        className="w-4/6 aspect-auto bg-black my-auto m-auto"
+                        className="w-5/6 aspect-auto bg-black my-auto m-auto"
                         src={countrie.flags.png}
                         alt={countrie.name.common}
                     />
@@ -115,16 +115,21 @@ function Country(props) {
                                 </p>
                             </div>
                         </div>
-                        <p className=" text-xl my-8 font-medium flex flex-wrap">
+                        <p className=" text-xl my-8 font-medium flex flex-wrap items-center gap-4">
                             Border Countries :
                             {borders &&
                                 borders.map((country, index) => (
-                                    <span
+                                    <Link
                                         key={index}
-                                        className="ml-2 px-4 py-1 border-2 rounded-lg text-lg font-normal bg-textwhite"
+                                        to={`/country/${country.cca2}`}
                                     >
-                                        {country.name.common}
-                                    </span>
+                                        <span
+                                            key={index}
+                                            className="ml-2 my-2 px-3 py-1 border-2 rounded-lg text-lg font-normal bg-white text-slate-800 dark:bg-slate-700 dark:text-gray-200"
+                                        >
+                                            {country.name.common}
+                                        </span>
+                                    </Link>
                                 ))}
                         </p>
                     </div>

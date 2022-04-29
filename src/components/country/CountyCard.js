@@ -2,12 +2,7 @@ import React from "react";
 
 function CountyCard({ name, population, region, flag, capital, id }) {
     return (
-        <div
-            className="bg-white text-slate-800 dark:bg-slate-700 dark:text-gray-200 rounded-lg overflow-hidden cursor-pointer hover:bg-pink-100"
-            onClick={() => {
-                console.log(id);
-            }}
-        >
+        <div className="bg-white text-slate-800 dark:bg-slate-700 dark:text-gray-200 rounded-lg overflow-hidden cursor-pointer hover:bg-pink-100">
             <img
                 className="w-full aspect-video object-fill"
                 src={flag}
