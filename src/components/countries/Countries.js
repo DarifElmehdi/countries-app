@@ -14,8 +14,16 @@ function Countries(props) {
         axios
             .get("https://restcountries.com/v3.1/all")
             .then((res) => {
-                setCountries(res.data);
-                setFiltredList(res.data);
+                setCountries(
+                    res.data.sort((a, b) => {
+                        return a.name.common.localeCompare(b.name.common);
+                    })
+                );
+                setFiltredList(
+                    res.data.sort((a, b) => {
+                        return a.name.common.localeCompare(b.name.common);
+                    })
+                );
             })
             .catch((err) => {
                 console.log(err);
@@ -44,7 +52,7 @@ function Countries(props) {
     }, []);
     return (
         <div className="flex flex-col pt-20 px-2 md:px-10 lg:px-40 w-full bg-gray-100 text-slate-800 dark:text-gray-100  dark:bg-slate-800 min-h-screen">
-            <div className="flex flex-col lg:flex-row items-center justify-between my-2 ml-4">
+            <div className="flex flex-col lg:flex-row items-center justify-between my-2 ">
                 <Search searchterm={searchTerm} searchhandler={filterHandler} />
                 <Select selecthandler={setSelect} />
             </div>
